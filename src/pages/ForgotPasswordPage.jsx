@@ -53,7 +53,7 @@ const ForgotPasswordPage = () => {
 
     if (isSubmitted) {
         return (
-            <Page background="dots" backgroundFade="radial">
+            <Page>
                 <Container layout="flex" align="center" justify="center" style={{ minHeight: '100vh' }}>
                     <Card style={{ maxWidth: '400px', width: '100%' }}>
                         <Container layout="flex-column" gap="lg" justify="center">
@@ -83,7 +83,7 @@ const ForgotPasswordPage = () => {
     }
 
     return (
-        <Page background="dots" backgroundFade="radial">
+        <Page>
             <Container layout="flex" align="center" justify="center" style={{ minHeight: '100vh' }}>
                 <Card style={{ maxWidth: '400px', width: '100%' }}>
                     <Container layout="flex-column" gap="lg" align="center">

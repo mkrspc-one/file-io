@@ -1328,7 +1328,7 @@ const SettingsPage = () => {
     };
 
     return (
-        <Page layout="flex-column" padding="none" gap="none" background="diagonal" backgroundFade="bottom">
+        <Page layout="flex-column" padding="none" gap="none">
             <Container
                 layout="flex-column" gap="lg" padding="none" width="100%" maxWidth="1200px"
                 style={{ margin: '0 auto', padding: 'clamp(20px, 3vw, 36px)' }}
