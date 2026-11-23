@@ -5,9 +5,9 @@
 .themed-card {
     /* Base visual styling */
     background-color: var(--surface-color);
-    border: 1px solid var(--border-color);
+    border: var(--edge-width, 1px) solid var(--border-color);
     border-radius: var(--card-radius, var(--border-radius));
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--card-shadow, var(--shadow-md));
     font-family: var(--font-family, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
 
     /* Default padding (can be overridden with p-* utilities) */
@@ -403,7 +403,7 @@
 .card.themed-card-hover:hover,
 .themed-card.themed-card-hover:hover {
     /* Removed transform to prevent stacking context issues with dropdowns */
-    box-shadow: 0 10px 15px -3px var(--shadow-color-hover);
+    box-shadow: var(--card-shadow-hover, 0 10px 15px -3px var(--shadow-color-hover));
 }
 
 /* Shadow on hover when Genie is active */
@@ -411,13 +411,13 @@
 .card.themed-card-hover.no-hover-transform:hover,
 .themed-card.themed-card-hover.has-genie-active:hover,
 .themed-card.themed-card-hover.no-hover-transform:hover {
-    box-shadow: 0 10px 15px -3px var(--shadow-color-hover);
+    box-shadow: var(--card-shadow-hover, 0 10px 15px -3px var(--shadow-color-hover));
 }
 
 /* Disable hover transforms for cards containing floating elements */
 .card.themed-card-hover:has(.genie-container):hover,
 .themed-card.themed-card-hover:has(.genie-container):hover {
-    box-shadow: 0 10px 15px -3px var(--shadow-color-hover);
+    box-shadow: var(--card-shadow-hover, 0 10px 15px -3px var(--shadow-color-hover));
 }
 
 .card.card-borderless,
@@ -469,7 +469,7 @@
 .themed-card.card-flat,
 .card.card-flat:hover,
 .themed-card.card-flat:hover {
-    box-shadow: none;
+    box-shadow: var(--card-shadow, none);
 }
 
 /* ===== Card Layout Behavior ===== */

@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@contexts/AuthContext';
 import { useTheme } from '@contexts/ThemeContext';
+import { GALLERY_THEMES } from '../styles/theme.gallery.js';
+import { loadThemeFonts } from '../styles/theme.compiler.js';
 import { NotificationsMenu } from './AppNotifications';
-import { Badge, Button, CircularProgress, Container, FloatingActionButton, Icon, Page, Typography } from './Components';
+import { Badge, Button, ButtonGroup, CircularProgress, Container, FloatingActionButton, Icon, Page, Switch, Typography } from './Components';
 
 const LOADING_MESSAGES = [
     'Loading page',
@@ -75,7 +77,7 @@ export const Navigation = ({
                                ...props
                            }) => {
     const {user, isLoading, logout, hasRole} = useAuth();
-    const {currentTheme, switchTheme, availableThemes, themes} = useTheme();
+    const {currentTheme, mode, setMode, switchTheme, availableThemes, themes} = useTheme();
     const [isNavigating, setIsNavigating] = useState(false);
     const navigate = useNavigate();
 
@@ -258,19 +260,19 @@ export const Navigation = ({
                 <Typography as="p" size="xs" weight="medium">
                     THEME
                 </Typography>
-                <Container layout="flex" gap="xs" wrap justify="center" width="100%">
+                <ButtonGroup size="sm" spaced justify="start" width="100%" maxWidth="440px">
                     {availableThemes.map(themeName => (
                         <Button
                             key={themeName}
-                            variant='ghost'
-                            size="sm"
+                            theme={themeName}
                             selected={currentTheme === themeName}
                             onClick={() => handleThemeChange(themeName)}
                         >
                             {themes[themeName]?.name || themeName.charAt(0).toUpperCase() + themeName.slice(1)}
                         </Button>
                     ))}
-                </Container>
+                </ButtonGroup>
+                <Switch size="sm" label={`Dark ${themes[currentTheme]?.name || 'theme'}`} checked={mode === 'dark'} onChange={() => setMode(mode === 'dark' ? 'light' : 'dark')} />
             </Container>
 
             {/* Actions */}
@@ -306,6 +308,7 @@ export const Navigation = ({
             icon={isNavigating ? 'FiLoader' : 'FiMap'}
             theme={theme}
             disabled={isNavigating}
+            onGenieShow={() => GALLERY_THEMES.forEach(loadThemeFonts)}
             genie={{
                 trigger: 'click',
                 content: genieContent,

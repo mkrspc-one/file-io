@@ -4,7 +4,7 @@
     height: 2.5rem;
     margin: var(--spacing-sm) 0;
     padding: 0 var(--spacing-md);
-    border: 1px solid var(--primary-color);
+    border: var(--edge-width, 1px) solid var(--primary-color);
     border-radius: var(--button-radius, var(--border-radius-md));
     font-size: var(--font-size-sm);
     font-weight: var(--font-weight-medium);
