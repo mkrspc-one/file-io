@@ -8,7 +8,7 @@ import { NotificationProvider } from '@contexts/NotificationContext';
 import HomePage from './pages/HomePage';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-import ForgotPasswordPage from './pages/ForgotPasswordPage';
+import ForgotPasswordPage, { ResetPasswordPage, VerifyEmailPage } from './pages/ForgotPasswordPage';
 import DashboardPage from './pages/DashboardPage';
 import FilesPage from './pages/FilesPage';
 import GroupDetailPage from './pages/GroupDetailPage';
@@ -45,6 +45,16 @@ function AppRouter() {
         <Route path="/forgot-password" element={
           <RouteAccessControl path="/forgot-password">
             <ForgotPasswordPage />
+          </RouteAccessControl>
+        } />
+        <Route path="/reset-password/:token" element={
+          <RouteAccessControl path="/reset-password">
+            <ResetPasswordPage />
+          </RouteAccessControl>
+        } />
+        <Route path="/verify-email/:token" element={
+          <RouteAccessControl path="/verify-email">
+            <VerifyEmailPage />
           </RouteAccessControl>
         } />
 

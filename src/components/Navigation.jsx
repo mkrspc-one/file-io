@@ -54,7 +54,7 @@ const getRouteConfig = () => {
     };
 };
 
-const PUBLIC_PAGES = ['/'];
+const PUBLIC_PAGES = ['/', '/verify-email'];
 
 /**
  * Navigation - App navigation component with draggable FAB and Genie integration
@@ -338,7 +338,7 @@ export const RouteAccessControl = ({children, path}) => {
     }
 
     // Simple auth pages list
-    const authPages = ['/login', '/signup', '/forgot-password'];
+    const authPages = ['/login', '/signup', '/forgot-password', '/reset-password'];
     const isAuthPage = authPages.includes(path);
 
     // Redirect logic
